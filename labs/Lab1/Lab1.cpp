@@ -51,6 +51,27 @@ bool promptForPlayAgain()
     
 }
 
+void playOneRound()
+{
+    std::cout << "*** Welcome to mystery number ***\n";
+
+    int maxRange{ promptUserForMaximumRange() };
+
+    int randomNumber{ pickRandomNumberInRange(0, maxRange) };
+    //std::cout << "randomNunmber is " << randomNumber << '\n'; // debug statement
+
+    int guess{ promptUserForGuess(maxRange) };
+    int guessCount { 1 };
+    while (guess != randomNumber)
+    {
+        std::cout << (guess > randomNumber ? "guess lower..." : "guess higher...") << '\n';
+        guessCount++;
+        guess = promptUserForGuess(maxRange);
+    }
+
+    std::cout << "Correct, it took you " << guessCount << " guesses!\n";
+}
+
 int main()
 {
     // Tests
@@ -69,5 +90,8 @@ int main()
     //std::cout << promptUserForGuess(5) << '\n';
     //
     // Test promptForPlayAgain()
-    std::cout << promptForPlayAgain() << '\n';
+    //std::cout << promptForPlayAgain() << '\n';
+    //
+    // Test playOneRound()
+    playOneRound();
 }
