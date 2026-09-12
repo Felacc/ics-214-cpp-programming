@@ -26,6 +26,31 @@ int promptUserForGuess(int maxRange)
     return guess;
 }
 
+bool promptForPlayAgain()
+{
+    std::cout << "Do you wish to play again [y/n]: ";
+
+    char answer{};
+    std::cin >> answer;
+
+    if (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N')
+    {
+        std::cout << "invalid input - try again\n";
+        promptForPlayAgain();
+    }
+    
+    if (answer == 'y' || answer == 'Y')
+    {
+        return true;
+    }
+
+    if (answer == 'n' || answer == 'N')
+    {
+        return false;
+    }
+    
+}
+
 int main()
 {
     // Tests
@@ -41,6 +66,8 @@ int main()
     //}
     // 
     // Test promptUserForGuess()
-    std::cout << promptUserForGuess(5) << '\n';
-
+    //std::cout << promptUserForGuess(5) << '\n';
+    //
+    // Test promptForPlayAgain()
+    std::cout << promptForPlayAgain() << '\n';
 }
