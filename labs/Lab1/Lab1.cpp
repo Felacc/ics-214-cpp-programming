@@ -50,6 +50,7 @@ bool promptForPlayAgain()
 		return false;
 	}
 
+	return false; // default behavior for UB is to quit out
 }
 
 void playOneRound()
