@@ -75,6 +75,8 @@ void playOneRound()
 
 int main()
 {
+	srand(static_cast<unsigned int>(time(0))); // seed randomizer - without this line the random numbers will be the same for every run
+
 	bool playing{ true };
 	while (playing)
 	{
@@ -85,26 +87,24 @@ int main()
 	std::cout << "Thanks for playing!\n";
 
 
-
-
-		// Tests
-		// --------------------------------------------------
-		// 
-		// Test promptUserForMaximumRange()
-		//std::cout << promptUserForMaximumRange();
-		// 
-		// Test pickRandomNumberInRange()
-		//for (int i = 0; i < 20; i++)
-		//{
-		//    std::cout << pickRandomNumberInRange(5, 7) << '\n';
-		//}
-		// 
-		// Test promptUserForGuess()
-		//std::cout << promptUserForGuess(5) << '\n';
-		//
-		// Test promptForPlayAgain()
-		//std::cout << promptForPlayAgain() << '\n';
-		//
-		// Test playOneRound()
-		//playOneRound();
+	// Tests
+	// --------------------------------------------------
+	// 
+	// Test promptUserForMaximumRange()
+	//std::cout << promptUserForMaximumRange();
+	// 
+	// Test pickRandomNumberInRange()2
+	//for (int i = 0; i < 20; i++)
+	//{
+	//    std::cout << pickRandomNumberInRange(5, 7) << '\n';
+	//}
+	// 
+	// Test promptUserForGuess()
+	//std::cout << promptUserForGuess(5) << '\n';
+	//
+	// Test promptForPlayAgain()
+	//std::cout << promptForPlayAgain() << '\n';
+	//
+	// Test playOneRound()
+	//playOneRound();
 }
