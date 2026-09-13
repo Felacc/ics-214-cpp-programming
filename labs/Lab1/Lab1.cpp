@@ -7,12 +7,41 @@ void ignoreLine()
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
+bool clearFailedExtraction()
+{
+	if (!std::cin)
+	{
+		if (std::cin.eof())
+		{
+			std::exit(0);
+		}
+
+		std::cin.clear();
+		ignoreLine();
+
+		return true;
+	}
+
+	return false;
+}
+
 int getIntFromUser()
 {
-	int value;
-	std::cin >> value;
-	ignoreLine();
-	return value;
+	int value{};
+
+	while (true)
+	{
+		std::cin >> value;
+
+		if (clearFailedExtraction())
+		{
+			std::cout << "Invalid input. Input must be a valid int. Please try again: ";
+			continue;
+		}
+
+		ignoreLine();
+		return value;
+	}
 }
 
 int promptUserForMaximumRange()
