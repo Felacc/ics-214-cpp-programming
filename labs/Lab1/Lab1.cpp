@@ -44,10 +44,23 @@ int getIntFromUser()
 	}
 }
 
+int getIntFromUserInRange(int min, int max)
+{
+	int value{ getIntFromUser() };
+
+	while (value < min || value > max)
+	{
+		std::cout << "Invalid input. Range is [" << min << " to " << max << "]. Please try again: ";
+		value = getIntFromUser();
+	}
+
+	return value;
+}
+
 int promptUserForMaximumRange()
 {
 	std::cout << "Enter the maximum range: ";
-	int max{getIntFromUser()};
+	int max{ getIntFromUserInRange(1, INT_MAX) };
 	return max;
 }
 
@@ -59,7 +72,7 @@ int pickRandomNumberInRange(int min, int max)
 int promptUserForGuess(int maxRange)
 {
 	std::cout << "Guess a number between 0 and " << maxRange << ": ";
-	int guess{getIntFromUser()};
+	int guess{ getIntFromUserInRange(0, maxRange) };
 	return guess;
 }
 
