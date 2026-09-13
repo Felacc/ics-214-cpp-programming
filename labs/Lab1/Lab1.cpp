@@ -1,13 +1,17 @@
 #include <iostream>
 #include <cstdlib>
 
+int getIntFromUser()
+{
+	int value;
+	std::cin >> value;
+	return value;
+}
+
 int promptUserForMaximumRange()
 {
 	std::cout << "Enter the maximum range: ";
-
-	int max{};
-	std::cin >> max;
-
+	int max{getIntFromUser()};
 	return max;
 }
 
@@ -19,10 +23,7 @@ int pickRandomNumberInRange(int min, int max)
 int promptUserForGuess(int maxRange)
 {
 	std::cout << "Guess a number between 0 and " << maxRange << ": ";
-
-	int guess{};
-	std::cin >> guess;
-
+	int guess{getIntFromUser()};
 	return guess;
 }
 
