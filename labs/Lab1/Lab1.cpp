@@ -1,10 +1,17 @@
 #include <iostream>
 #include <cstdlib>
 
+// discards all characters in the input stream up to and including \n
+void ignoreLine()
+{
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
 int getIntFromUser()
 {
 	int value;
 	std::cin >> value;
+	ignoreLine();
 	return value;
 }
 
