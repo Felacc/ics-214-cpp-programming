@@ -131,6 +131,7 @@ bool promptForPlayAgain()
 		if (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N')
 		{
 			std::cout << "invalid input - try again\n";
+			ignoreLine();
 			continue;
 		}
 
