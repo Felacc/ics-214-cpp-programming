@@ -121,29 +121,30 @@ int promptUserForGuess(int maxRange)
 // Returns: true if user answers 'y' or 'Y', false if 'n' or 'N'.
 bool promptForPlayAgain()
 {
-	std::cout << "Do you wish to play again [y/n]: ";
-
 	char answer{};
-	std::cin >> answer;
 
-	if (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N')
+	while (true)
 	{
-		std::cout << "invalid input - try again\n";
-		return promptForPlayAgain();
-	}
+		std::cout << "Do you wish to play again [y/n]: ";
+		std::cin >> answer;
 
-	if (answer == 'y' || answer == 'Y')
-	{
-		std::cout << '\n'; // prints a new line to create space between the game rounds 
-		return true;
-	}
+		if (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N')
+		{
+			std::cout << "invalid input - try again\n";
+			continue;
+		}
 
-	if (answer == 'n' || answer == 'N')
-	{
-		return false;
-	}
+		if (answer == 'y' || answer == 'Y')
+		{
+			std::cout << '\n'; // prints a new line to create space between the game rounds 
+			return true;
+		}
 
-	return false; // default behavior for UB is to quit out
+		if (answer == 'n' || answer == 'N')
+		{
+			return false;
+		}
+	}
 }
 
 // Purpose: Play one complete round of the mystery-number guessing game.
